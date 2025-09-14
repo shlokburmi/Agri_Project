@@ -23,7 +23,9 @@ from sklearn.model_selection import train_test_split
 warnings.filterwarnings('ignore')
 
 # --- DATA LOADING AND EXPLORATION ---
-df = pd.read_csv(r'Crop_recommendation.csv') # Assuming the CSV is in the same directory
+df = pd.read_csv(r'Crop_recommendation_final.csv') # Assuming the CSV is in the same directory
+df['label'] = df['label'].str.capitalize()
+
 
 # Separate features and target label
 features = df[['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']]
