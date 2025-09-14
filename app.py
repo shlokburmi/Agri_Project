@@ -51,7 +51,8 @@ def predict():
             crop_name = le.inverse_transform([predicted_class])[0]
 
 
-        return jsonify({"crop_recommendation": crop_name})
+        return jsonify({"crop_recommendation": crop_name.capitalize()})
+
 
     except Exception as e:
         return jsonify({"error": str(e)})
