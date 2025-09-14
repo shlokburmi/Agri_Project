@@ -45,7 +45,11 @@ def predict():
         predicted_class = prediction[0]
 
         # Decode predicted class index to crop name
-        crop_name = crop_dict.get(predicted_class, "Unknown")
+        if isinstance(predicted_class, str):
+            crop_name = predicted_class
+        else:
+            crop_name = le.inverse_transform([predicted_class])[0]
+
 
         return jsonify({"crop_recommendation": crop_name})
 
